@@ -8,9 +8,14 @@ Here's the table of contents:
 
 Total Variation (TV)
 
-**Theorem 4.1.** Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as:
+**Theorem 4.1.** *Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as*:
 
-$$$\nu\[\pi\] \geq \hat{\nu}\[\pi\] - \[\frac{2\gamma r{\text{max}}(\epsilon_{m} + 2\epsilon_{\pi})}}{(1-\gamma)^2} + \frac{4 r{\text{max}}\epsilon_{\pi}}{1-\gamma}\] $$$
+$\nu\[\pi\] \geq \hat{\nu}\[\pi\] - \[\frac{2\gamma r_{\text{max}}(\epsilon_{m} + 2\epsilon_{\pi})}}{(1-\gamma)^2} + \frac{4 r_{\text{max}}\epsilon_{\pi}}{1-\gamma}\].$
+
+Theorem 4.1 implies that as long as we can improve the returns under the model $\hat{\nu}\[\pi\]$ by more than $C(\epsilon_{m}, \epsilon_{\pi})$, we guarantee improvement under the true returns.
+
+**Theorem 4.2.** *Given returns $\nu^{\text{branch}}\[\pi\]$ from the k-branched rollout method, 
+$\nu\[\pi\] \geq \hat{\text{branch}\[\pi\] - 2r_{\text{max}}\[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\(\epsilon_{\pi} + 2\epsilon_{\pi}\)\].$
 
 
 ## Basic setup
