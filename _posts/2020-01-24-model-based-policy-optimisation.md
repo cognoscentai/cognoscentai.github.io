@@ -6,7 +6,11 @@ Here's the table of contents:
 {:toc}
 
 
-$$\mu$$
+Total Variation (TV)
+
+**Theorem 4.1.** Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as:
+
+$$$\nu\[\pi\] \geq \hat{\nu}\[\pi\] - \[\frac{2\gamma r{\text{max}}(\epsilon_{m} + 2\epsilon_{\pi})}}{(1-\gamma)^2} + \frac{4 r{\text{max}}\epsilon_{\pi}}{1-\gamma}\] $$$
 
 
 ## Basic setup
