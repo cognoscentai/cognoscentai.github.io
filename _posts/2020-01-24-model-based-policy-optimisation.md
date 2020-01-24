@@ -10,13 +10,17 @@ Total Variation (TV)
 
 **Theorem 4.1.** *Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as*:
 
-$\nu\[\pi\] \geq \hat{\nu}\[\pi\] - \[\frac{2\gamma r_{\text{max}}(\epsilon_{m} + 2\epsilon_{\pi})}}{(1-\gamma)^2} + \frac{4 r_{\text{max}}\epsilon_{\pi}}{1-\gamma}\].$
+$\nu\left[\pi\right] \geq \hat{\nu}\left[\pi\right] - \left[\frac{2\gamma r_{\text{max}}(\epsilon_{m} + 2\epsilon_{\pi})}}{(1-\gamma)^2} + \frac{4 r_{\text{max}}\epsilon_{\pi}}{1-\gamma}\right].$
 
 Theorem 4.1 implies that as long as we can improve the returns under the model $\hat{\nu}\[\pi\]$ by more than $C(\epsilon_{m}, \epsilon_{\pi})$, we guarantee improvement under the true returns.
 
-**Theorem 4.2.** *Given returns $\nu^{\text{branch}}\[\pi\]$ from the k-branched rollout method, 
-$\nu\[\pi\] \geq \hat{\text{branch}\[\pi\] - 2r_{\text{max}}\[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\(\epsilon_{\pi} + 2\epsilon_{\pi}\)\].$
+**Theorem 4.2.** *Given returns $\nu^{\text{branch}}\[\pi\]$ from the k-branched rollout method,*
 
+$\nu\left[\pi\right] \geq \hat{\text{branch}\left[\pi\right] - 2r_{\text{max}}\left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m} + 2\epsilon_{\pi}\right)\right].$
+
+**Theorem 4.3.** *Under the k-branched rollout method, using model error under the updated policy $\epsilon_{m^{\prime}}\geq \underset{t}{\text{max}} E_{s\sim\pi_{D},t}\left[D_{TV}(p(s^{\prime}\vert s,a)\Vert \hat{p}(s^{\prime}\vert s,a)))\right]$, we have,*
+
+$\nu\left[\pi\right] \geq \hat{\text{branch}\left[\pi\right] - 2r_{\text{max}}\left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m^{\prime}}\right)\right].$
 
 ## Basic setup
 
