@@ -18,9 +18,14 @@ Theorem 4.1 implies that as long as we can improve the returns under the model $
 
 $\nu\left[\pi\right] \geq \hat{\text{branch}\left[\pi\right] - 2r_{\text{max}}\left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m} + 2\epsilon_{\pi}\right)\right].$
 
+Theorem 4.2 is a pessimistic bound as it assumed access to only model error $\epsilon_{m}$ on the distribution of the most recent data-collecting policy $\pi_{D}$ and approximated error on the model error for the distribution of data for the current policy $\pi$, $\epsilon_{m} + 2\epilon_{\pi}$. 
+
 **Theorem 4.3.** *Under the k-branched rollout method, using model error under the updated policy $\epsilon_{m^{\prime}}\geq \underset{t}{\text{max}} E_{s\sim\pi_{D},t}\left[D_{TV}(p(s^{\prime}\vert s,a)\Vert \hat{p}(s^{\prime}\vert s,a)))\right]$, we have,*
 
 $\nu\left[\pi\right] \geq \hat{\text{branch}\left[\pi\right] - 2r_{\text{max}}\left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m^{\prime}}\right)\right].$
+
+While this bound appears similar to Theorem 4.2, the important difference is that this version motivates model usage, since $k^{*} = \underset{k}{\text{argmin}} \left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m^{\prime}}\right)\right] > 0$ for sufficiently low $\epsilon_{m^{\prime}}$.
+
 
 ## Basic setup
 
