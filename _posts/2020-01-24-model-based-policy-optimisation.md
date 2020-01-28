@@ -18,9 +18,9 @@ The gap between true return and model returns, $C$, can be expressed in terms of
 
 $\epsilon_{m}$ can be quantified using PAC generalisation bounds for supervised learning. This bounds the difference between expected loss and empirical loss by a constant with high probability, $\epsilon_{m} = \underset{t}{\text{max}} E_{s \sim \pi_{D,t}} \left[D_{TV}\left(p\left(s^{\prime}\vert s,a\right)\Vert\p_{\theta}left(s^{\prime}\vert s,a\right)\right)\right]$. This can be estimated by measuring the validation loss of the model on the time-dependent state distribution of the data-collecting policy, $\pi_{D}$.
 
-$\epsilon_{\pi}$ can be quantified by, $\epsilon_{\pi} \geq \underset{s}{\text{max}}D_{TV}\left(\pi\Vert\pi_{D}\right)$, the maximum total-variation distance between of the policy between iterations. In practise, we measure the KL divergence between policies, which can be related to $\epsilon_{\pi}$ by Pinskers inequality.
+$\epsilon_{\pi}$ can be quantified by, $\epsilon_{\pi} \geq \underset{s}{\text{max}}D_{TV}\left(\pi\Vert\pi_{D}\right)$, the maximum total-variation distance between of the policy between iterations. In practise, we measure the KL divergence between policies, which can be related to $\epsilon_{\pi}$ by Pinskers inequality, $D_{TV}\left(P\Vert Q\right) \leq \sqrt{\frac{1}{2}D_{KL}\left(P\Vert Q\right)}$.
 
-The folling Theorem defines $C$ in terms of $\epsilon_{m}$ and $\epsilon_{\pi}$.
+The following theorem defines $C$ in terms of $\epsilon_{m}$ and $\epsilon_{\pi}$.
 
 **Theorem 4.1.** *Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as*:
 
