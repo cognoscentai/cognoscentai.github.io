@@ -5,8 +5,22 @@ Here's the table of contents:
 1. TOC
 {:toc}
 
+To guarantee monotonic improvement for a model-based method, we construct a bound of the form:
 
-Total Variation (TV)
+$\nu\[\pi\] \geq \hat{\nu}\[\pi\] - C$.
+
+$\nu\[\pi\]$ denotes the returns of the policy in the true MDP, $\hat{\nu}\[\pi\]$ denotes the returns of the policy under the model. The bound guarantees that as long we improve returns by at least $C$ under the model, we are guaranteed improvement on the true MDP.
+
+The gap between true return and model returns, $C$, can be expressed in terms of two model errors:
+
+1. generalisation error due to sampling, $\epsilon_{m}$.
+2. distribution shift error due to the updated policy encountering states not observed during model training, $\epsilon_{\pi}$.
+
+$\epsilon_{m}$ can be quantified using PAC generalisation bounds for supervised learning. This bounds the difference between expected loss and empirical loss by a constant with high probability, $\epsilon_{m} = \underset{t}{\text{max}} E_{s \sim \pi_{D,t}} \left[D_{TV}\left(p\left(s^{\prime}\vert s,a\right)\Vert\p_{\theta}left(s^{\prime}\vert s,a\right)\right)\right]$. This can be estimated by measuring the validation loss of the model on the time-dependent state distribution of the data-collecting policy, $\pi_{D}$.
+
+$\epsilon_{\pi}$ can be quantified by, $\epsilon_{\pi} \geq \underset{s}{\text{max}}D_{TV}\left(\pi\Vert\pi_{D}\right)$, the maximum total-variation distance between of the policy between iterations. In practise, we measure the KL divergence between policies, which can be related to $\epsilon_{\pi}$ by Pinskers inequality.
+
+The folling Theorem defines $C$ in terms of $\epsilon_{m}$ and $\epsilon_{\pi}$.
 
 **Theorem 4.1.** *Let the expected TV-distance between two transition distributions be bounded at each timestep by $\epsilon_{m}$ and the policy divergence be bounded by $\epsilon_{\pi}$. Then the true returns and model returns of the policy are bounded as*:
 
@@ -25,6 +39,11 @@ Theorem 4.2 is a pessimistic bound as it assumed access to only model error $\ep
 $\nu\left[\pi\right] \geq \hat{\text{branch}\left[\pi\right] - 2r_{\text{max}}\left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m^{\prime}}\right)\right].$
 
 While this bound appears similar to Theorem 4.2, the important difference is that this version motivates model usage, since $k^{*} = \underset{k}{\text{argmin}} \left[\frac{\gamma^{k+1} \epsilon_{\pi}}{(1-\gamma)^2} + \frac{\gamma^{k}+2}{1-\gamma}\epsilon_{\pi} + \frac{k}{1-\gamma}\left(\epsilon_{m^{\prime}}\right)\right] > 0$ for sufficiently low $\epsilon_{m^{\prime}}$.
+
+This motivates the following model-based reinforcement learning algorithm:
+
+
+
 
 
 ## Basic setup
