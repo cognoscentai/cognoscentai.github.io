@@ -5,6 +5,26 @@ Here's the table of contents:
 1. TOC
 {:toc}
 
+Model-based policy optimisation (MBPO) defines a general algorithm for guaranteeing monotonic policy improvement in policy search reinforcement learning. This algorithm resembles or subsumes several prior algorithms and provides a framework for theoretical analysis. From the theoretical analysis the authors design a practical model-based reinforcement learning that achieves state-of-the-art performance on continuous control benchmarks, comparable to model-free methods, with the sample efficiency of a model-based method. 
+
+In Algorithm 1, we give the general algorithm for guaranteed monotonic policy improvement.
+
+
+
+---
+
+**Algorithm 1** Monotonic Model-Based Policy Optimisation
+
+---
+
+1. Initialise policy $\pi(a\vert s)$, predictive model $p_{\theta}(s^{\prime}, r\vert s,a)$, empty dataset $\mathcal{D}$.
+2. **for** $N$ epochs **do**
+3.     Collect data with $\pi$ in environment: $\mathcal{D}=\mathcal{D}\cup\{(s_{i},a_{i},s^{\prime}_{i},r_{i})\}$
+4.     Train model $p_{\theta}$ on $\mathcal{D}$ via maximum likelihood: $\theta\leftarrow \underset{\theta}{\text{argmax}}E_{\mathcal{D}}[\text{log}p_{\theta}(s^{\prime}, r\vert s,a)]$ 
+5.     Optimise policy under predictive model: $\pi\leftarrow \underset{\pi}{\text{argmax}}\hat{\nu}\left[\pi\right] - C(\epsilon_{m}, \epsilon_{\pi})$
+
+---
+
 To guarantee monotonic improvement for a model-based method, we construct a bound of the form:
 
 $\nu[\pi] \geq \hat{\nu}[\pi] - C$.
