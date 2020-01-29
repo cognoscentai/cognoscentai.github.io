@@ -92,4 +92,5 @@ Policy 									  $\pi^{K}_{t}(s,a)\propto\exp\beta_{l}K_{t}(s,a)$
 
 
 [^1]: Brendan O’Donoghue. Making Sense of Reinforcement Learning and Probabilistic Inference. [*arXiv preprint arXiv:2001.00805*](https://arxiv.org/pdf/2001.00805.pdf), 2020.
+
 [^2]: Brendan O’Donoghue. Variational Bayesian reinforcement learning with regret bounds. [*arXiv preprint arXiv:1807.09647*](https://arxiv.org/pdf/1807.09647.pdf), 2018. 
