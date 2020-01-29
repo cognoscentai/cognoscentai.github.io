@@ -1,10 +1,5 @@
 # Model Based Policy Optimisation 
 
-Here's the table of contents:
-
-1. TOC
-{:toc}
-
 Model-based policy optimisation (MBPO) defines a general algorithm for guaranteeing monotonic policy improvement in policy search reinforcement learning. This algorithm resembles or subsumes several prior algorithms and provides a framework for theoretical analysis. From the theoretical analysis the authors design a practical model-based reinforcement learning that achieves state-of-the-art performance on continuous control benchmarks, comparable to model-free methods, with the sample efficiency of a model-based method. 
 
 In Algorithm 1, we give the general algorithm for guaranteed monotonic policy improvement.
@@ -87,13 +82,3 @@ The key features of Algorithm 1 are:
 2. a fixed number of policy update steps, $G$, which controls $\epsilon_{\pi}$.
 
 Another advantage is that even with short rollout length, $k$, many such rollouts can be performed to yield a large set of model samples for policy optimisation. This large set enables many more gradient steps per environment sample than is typically stable in model-free algorithms.
-
-
-
-
-
-
-## Footnotes
-
-[^1]: This is the footnote.
-
